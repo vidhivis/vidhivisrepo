@@ -4,5 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="hello.py" />
+    <orderEntry type="module" module-name="pythonProject1" />
+    <orderEntry type="module" module-name="Data Structure" />
   </component>
 </module>
