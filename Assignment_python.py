@@ -1,7 +1,7 @@
-print("Hello Vidhi")
+'''print("Hello Vidhi")
 
 name = input("Name? ")
-print(f"Hello, {name}! Nice to meet you!")
+print(f"Hello, {name}! Very Nice to meet you!")
 
 import math
 radius = float(input("Enter the radius of the circle: "))
@@ -92,4 +92,23 @@ year = int(input("Enter a year: "))
 if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
     print(f"{year} is a leap year.")
 else:
-    print(f"{year} is not a leap year.")
+    print(f"{year} is not a leap year.")'''
+
+
+'''days_of_the_week = ("Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday")
+day_number = int(input("Enter a day number 1-7: "))
+print(days_of_the_week[day_number])
+fruits = "apple", "banana", "cherry", "blueberry"
+print(type(fruits))
+(first, second, third,fourth) = fruits
+print(first)
+print(second)
+print(third)
+print(fourth)'''
+games = {"monopoly", "chess", "cluedo"}
+print(games)
+games.add("dominion")
+games.remove("chess")
+print(games)
+for g in games:
+    print(g)

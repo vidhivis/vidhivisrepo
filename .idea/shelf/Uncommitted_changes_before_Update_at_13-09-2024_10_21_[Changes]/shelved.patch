@@ -1,0 +1,189 @@
+Index: Assignment_python.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>print(\"Hello Vidhi\")\r\n\r\nname = input(\"Name? \")\r\nprint(f\"Hello, {name}! Nice to meet you!\")\r\n\r\nimport math\r\nradius = float(input(\"Enter the radius of the circle: \"))\r\narea = math.pi * radius ** 2\r\nprint(f\"The area of the circle with radius {radius} is {area:.2f}\")\r\n\r\nlength = float(input(\"Enter the length of the rectangle: \"))\r\nwidth = float(input(\"Enter the width of the rectangle: \"))\r\nperimeter = 2 * (length + width)\r\narea = length * width\r\nprint(f\"The perimeter of the rectangle is {perimeter:.2f}\")\r\nprint(f\"The area of the rectangle is {area:.2f}\")\r\n\r\nnum1 = int(input(\"Enter the first integer: \"))\r\nnum2 = int(input(\"Enter the second integer: \"))\r\nnum3 = int(input(\"Enter the third integer: \"))\r\n\r\nsum_of_numbers = num1 + num2 + num3\r\nproduct_of_numbers = num1 * num2 * num3\r\naverage_of_numbers = sum_of_numbers / 3\r\n\r\nprint(f\"The sum of the numbers is: {sum_of_numbers}\")\r\nprint(f\"The product of the numbers is: {product_of_numbers}\")\r\nprint(f\"The average of the numbers is: {average_of_numbers:.2f}\")\r\n\r\nLOT_TO_GRAMS = 13.3\r\nPOUND_TO_LOTS = 32\r\nTALENT_TO_POUNDS = 20\r\n\r\ntalents = int(input(\"Enter the number of talents: \"))\r\npounds = int(input(\"Enter the number of pounds: \"))\r\nlots = int(input(\"Enter the number of lots: \"))\r\n\r\ntotal_lots = (talents * TALENT_TO_POUNDS * POUND_TO_LOTS) + (pounds * POUND_TO_LOTS) + lots\r\ntotal_grams = total_lots * LOT_TO_GRAMS\r\n\r\nkilograms = int(total_grams // 1000)\r\ngrams = total_grams % 1000\r\nprint(f\"The total weight is {kilograms} kilograms and {grams:.2f} grams.\")\r\n\r\nimport random\r\ncode_3_digit = [random.randint(0, 9) for _ in range(3)]\r\ncode_4_digit = [random.randint(1, 6) for _ in range(4)]\r\nprint(f\"3-digit lock code: {''.join(map(str, code_3_digit))}\")\r\nprint(f\"4-digit lock code: {''.join(map(str, code_4_digit))}\")\r\n\r\nSIZE_LIMIT = 42\r\nzander_length = float(input(\"Enter the length of the zander in centimeters: \"))\r\nif zander_length < SIZE_LIMIT:\r\n    difference = SIZE_LIMIT - zander_length\r\n    print(f\"The zander is too small and must be released back into the lake. It is {difference:.2f} cm below the size limit.\")\r\nelse:\r\n    print(\"The zander meets the size limit. You can keep it!\")\r\n\r\ncabin_class = input(\"Enter the cabin class (LUX, A, B, C): \").upper()\r\nif cabin_class == \"LUX\":\r\n    print(\"LUX: upper-deck cabin with a balcony.\")\r\nelif cabin_class == \"A\":\r\n    print(\"A: above the car deck, equipped with a window.\")\r\nelif cabin_class == \"B\":\r\n    print(\"B: windowless cabin above the car deck.\")\r\nelif cabin_class == \"C\":\r\n    print(\"C: windowless cabin below the car deck.\")\r\nelse:\r\n    print(\"Invalid cabin class.\")\r\n\r\ngender = input(\"Enter your biological gender (male/female): \").lower()\r\nhemoglobin_value = float(input(\"Enter your hemoglobin value (g/l): \"))\r\n\r\nif gender == \"female\":\r\n    if hemoglobin_value < 117:\r\n        print(\"Your hemoglobin level is low.\")\r\n    elif 117 <= hemoglobin_value <= 155:\r\n        print(\"Your hemoglobin level is normal.\")\r\n    else:\r\n        print(\"Your hemoglobin level is high.\")\r\nelif gender == \"male\":\r\n    if hemoglobin_value < 134:\r\n        print(\"Your hemoglobin level is low.\")\r\n    elif 134 <= hemoglobin_value <= 167:\r\n        print(\"Your hemoglobin level is normal.\")\r\n    else:\r\n        print(\"Your hemoglobin level is high.\")\r\nelse:\r\n    print(\"Invalid gender entered. Please enter either 'male' or 'female'.\")\r\n\r\nyear = int(input(\"Enter a year: \"))\r\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\r\n    print(f\"{year} is a leap year.\")\r\nelse:\r\n    print(f\"{year} is not a leap year.\")
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Assignment_python.py b/Assignment_python.py
+--- a/Assignment_python.py	(revision 8b05d239982d6becacef7224a8396c41b4d8324d)
++++ b/Assignment_python.py	(date 1726211590503)
+@@ -1,95 +1,0 @@
+-print("Hello Vidhi")
+-
+-name = input("Name? ")
+-print(f"Hello, {name}! Nice to meet you!")
+-
+-import math
+-radius = float(input("Enter the radius of the circle: "))
+-area = math.pi * radius ** 2
+-print(f"The area of the circle with radius {radius} is {area:.2f}")
+-
+-length = float(input("Enter the length of the rectangle: "))
+-width = float(input("Enter the width of the rectangle: "))
+-perimeter = 2 * (length + width)
+-area = length * width
+-print(f"The perimeter of the rectangle is {perimeter:.2f}")
+-print(f"The area of the rectangle is {area:.2f}")
+-
+-num1 = int(input("Enter the first integer: "))
+-num2 = int(input("Enter the second integer: "))
+-num3 = int(input("Enter the third integer: "))
+-
+-sum_of_numbers = num1 + num2 + num3
+-product_of_numbers = num1 * num2 * num3
+-average_of_numbers = sum_of_numbers / 3
+-
+-print(f"The sum of the numbers is: {sum_of_numbers}")
+-print(f"The product of the numbers is: {product_of_numbers}")
+-print(f"The average of the numbers is: {average_of_numbers:.2f}")
+-
+-LOT_TO_GRAMS = 13.3
+-POUND_TO_LOTS = 32
+-TALENT_TO_POUNDS = 20
+-
+-talents = int(input("Enter the number of talents: "))
+-pounds = int(input("Enter the number of pounds: "))
+-lots = int(input("Enter the number of lots: "))
+-
+-total_lots = (talents * TALENT_TO_POUNDS * POUND_TO_LOTS) + (pounds * POUND_TO_LOTS) + lots
+-total_grams = total_lots * LOT_TO_GRAMS
+-
+-kilograms = int(total_grams // 1000)
+-grams = total_grams % 1000
+-print(f"The total weight is {kilograms} kilograms and {grams:.2f} grams.")
+-
+-import random
+-code_3_digit = [random.randint(0, 9) for _ in range(3)]
+-code_4_digit = [random.randint(1, 6) for _ in range(4)]
+-print(f"3-digit lock code: {''.join(map(str, code_3_digit))}")
+-print(f"4-digit lock code: {''.join(map(str, code_4_digit))}")
+-
+-SIZE_LIMIT = 42
+-zander_length = float(input("Enter the length of the zander in centimeters: "))
+-if zander_length < SIZE_LIMIT:
+-    difference = SIZE_LIMIT - zander_length
+-    print(f"The zander is too small and must be released back into the lake. It is {difference:.2f} cm below the size limit.")
+-else:
+-    print("The zander meets the size limit. You can keep it!")
+-
+-cabin_class = input("Enter the cabin class (LUX, A, B, C): ").upper()
+-if cabin_class == "LUX":
+-    print("LUX: upper-deck cabin with a balcony.")
+-elif cabin_class == "A":
+-    print("A: above the car deck, equipped with a window.")
+-elif cabin_class == "B":
+-    print("B: windowless cabin above the car deck.")
+-elif cabin_class == "C":
+-    print("C: windowless cabin below the car deck.")
+-else:
+-    print("Invalid cabin class.")
+-
+-gender = input("Enter your biological gender (male/female): ").lower()
+-hemoglobin_value = float(input("Enter your hemoglobin value (g/l): "))
+-
+-if gender == "female":
+-    if hemoglobin_value < 117:
+-        print("Your hemoglobin level is low.")
+-    elif 117 <= hemoglobin_value <= 155:
+-        print("Your hemoglobin level is normal.")
+-    else:
+-        print("Your hemoglobin level is high.")
+-elif gender == "male":
+-    if hemoglobin_value < 134:
+-        print("Your hemoglobin level is low.")
+-    elif 134 <= hemoglobin_value <= 167:
+-        print("Your hemoglobin level is normal.")
+-    else:
+-        print("Your hemoglobin level is high.")
+-else:
+-    print("Invalid gender entered. Please enter either 'male' or 'female'.")
+-
+-year = int(input("Enter a year: "))
+-if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+-    print(f"{year} is a leap year.")
+-else:
+-    print(f"{year} is not a leap year.")
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"98520177-60a5-4dfa-a911-3f3ff7f5911c\" name=\"Changes\" comment=\"Assignment\">\r\n      <change beforePath=\"$PROJECT_DIR$/../hello.py/.idea/hello.py.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../hello.py/.idea/hello.py.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../hello.py/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../hello.py/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../hello.py/vidhiprog.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../hello.py/vidhiprog.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Assignment_python.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Assignment_python.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"ROOT_SYNC\" value=\"DONT_SYNC\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;vidhivis&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/vidhivis/vidhivisrepo.git&quot;,\r\n    &quot;accountId&quot;: &quot;eaeda93a-6ede-4517-85fe-5f99c67757ff&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2lNAwAWfcC1efbkrRwWhNz5pRAU\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Python.Assignment_python.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.Data Structure project 1.executor&quot;: &quot;Run&quot;,\r\n    &quot;Python.vidhiprog.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vidhi Soni/PycharmProjects/vidhi&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"Python.Assignment_python\">\r\n    <configuration name=\"Assignment_python\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"vidhivisrepo\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Assignment_python.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Data Structure project 1\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Data Structure\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/../Data Structure\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/../Data Structure/Data Structure project 1.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"vidhi1\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"pythonProject1\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/../pythonProject1\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/../pythonProject1/vidhi1.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"vidhiprog\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"hello.py\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/../hello.py\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/../hello.py/vidhiprog.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.Assignment_python\" />\r\n        <item itemvalue=\"Python.Data Structure project 1\" />\r\n        <item itemvalue=\"Python.vidhiprog\" />\r\n        <item itemvalue=\"Python.vidhi1\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.428\" />\r\n        <option value=\"bundled-python-sdk-80e8e15d2b92-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.428\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"98520177-60a5-4dfa-a911-3f3ff7f5911c\" name=\"Changes\" comment=\"\" />\r\n      <created>1725010397268</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1725010397268</updated>\r\n      <workItem from=\"1725010398447\" duration=\"30000\" />\r\n      <workItem from=\"1725010780779\" duration=\"64000\" />\r\n      <workItem from=\"1725010846959\" duration=\"798000\" />\r\n      <workItem from=\"1725015569599\" duration=\"13000\" />\r\n      <workItem from=\"1725015598040\" duration=\"8864000\" />\r\n      <workItem from=\"1725444521356\" duration=\"6398000\" />\r\n      <workItem from=\"1726041093596\" duration=\"70000\" />\r\n      <workItem from=\"1726043331900\" duration=\"315000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"vote info\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1726037060579</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1726037060579</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"vote info\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"vote info\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/vidhivisrepo$Data_Structure_project_1.coverage\" NAME=\"Data Structure project 1 Coverage Results\" MODIFIED=\"1726038296160\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/../Data Structure\" />\r\n    <SUITE FILE_PATH=\"coverage/vidhivisrepo$vidhiprog.coverage\" NAME=\"vidhiprog Coverage Results\" MODIFIED=\"1725094407188\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/../hello.py\" />\r\n    <SUITE FILE_PATH=\"coverage/vidhivisrepo$Assignment_python.coverage\" NAME=\"Assignment_python Coverage Results\" MODIFIED=\"1726038312041\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8b05d239982d6becacef7224a8396c41b4d8324d)
++++ b/.idea/workspace.xml	(date 1726211752018)
+@@ -4,12 +4,6 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="98520177-60a5-4dfa-a911-3f3ff7f5911c" name="Changes" comment="Assignment">
+-      <change beforePath="$PROJECT_DIR$/../hello.py/.idea/hello.py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../hello.py/.idea/hello.py.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../hello.py/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../hello.py/.idea/modules.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../hello.py/vidhiprog.py" beforeDir="false" afterPath="$PROJECT_DIR$/../hello.py/vidhiprog.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Assignment_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment_python.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -26,7 +20,6 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="ROOT_SYNC" value="DONT_SYNC" />
+-    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="GitHubPullRequestSearchHistory">{
+   &quot;lastFilter&quot;: {
+@@ -49,23 +42,7 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Python.Assignment_python.executor&quot;: &quot;Run&quot;,
+-    &quot;Python.Data Structure project 1.executor&quot;: &quot;Run&quot;,
+-    &quot;Python.vidhiprog.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Vidhi Soni/PycharmProjects/vidhi&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}</component>
+   <component name="RunManager" selected="Python.Assignment_python">
+     <configuration name="Assignment_python" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="vidhivisrepo" />
+@@ -190,8 +167,6 @@
+       <workItem from="1725015569599" duration="13000" />
+       <workItem from="1725015598040" duration="8864000" />
+       <workItem from="1725444521356" duration="6398000" />
+-      <workItem from="1726041093596" duration="70000" />
+-      <workItem from="1726043331900" duration="315000" />
+     </task>
+     <task id="LOCAL-00001" summary="vote info">
+       <option name="closed" value="true" />
+@@ -206,17 +181,6 @@
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+-  </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="vote info" />
