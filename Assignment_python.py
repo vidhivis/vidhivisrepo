@@ -112,3 +112,31 @@ games.remove("chess")
 print(games)
 for g in games:
     print(g)
+import random
+
+# Function to roll the dice and calculate the sum
+def roll_dice(number_of_dice):
+    total_sum = 0
+    for _ in range(number_of_dice):
+        roll = random.randint(1, 6)  # Simulate a die roll (1 to 6)
+        total_sum += roll
+        print(f"Die roll: {roll}")  # Print the result of each roll
+    return total_sum
+
+# Main function
+def main():
+    try:
+        number_of_dice = int(input("How many dice do you want to roll? "))
+        if number_of_dice <= 0:
+            print("Please enter a positive number.")
+            return
+
+        total_sum = roll_dice(number_of_dice)
+        print(f"\nThe sum of all dice rolls is: {total_sum}")
+
+    except ValueError:
+        print("Please enter a valid number.")
+
+# Run the main function
+if __name__ == "__main__":
+    main()
