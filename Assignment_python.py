@@ -105,25 +105,25 @@ print(first)
 print(second)
 print(third)
 print(fourth)'''
-games = {"monopoly", "chess", "cluedo"}
+'''games = {"monopoly", "chess", "cluedo"}
 print(games)
 games.add("dominion")
 games.remove("chess")
 print(games)
 for g in games:
     print(g)
-import random
+'''
 
-# Function to roll the dice and calculate the sum
+'''import random
+
 def roll_dice(number_of_dice):
     total_sum = 0
-    for _ in range(number_of_dice):
-        roll = random.randint(1, 6)  # Simulate a die roll (1 to 6)
+    for i in range(number_of_dice):
+        roll = random.randint(1, 6)
+        print(f"Roll {i+1}: {roll}")
         total_sum += roll
-        print(f"Die roll: {roll}")  # Print the result of each roll
     return total_sum
 
-# Main function
 def main():
     try:
         number_of_dice = int(input("How many dice do you want to roll? "))
@@ -131,12 +131,46 @@ def main():
             print("Please enter a positive number.")
             return
 
-        total_sum = roll_dice(number_of_dice)
-        print(f"\nThe sum of all dice rolls is: {total_sum}")
+        total = roll_dice(number_of_dice)
+        print(f"\nThe total sum of all dice rolls is: {total}")
 
     except ValueError:
-        print("Please enter a valid number.")
+        print("Invalid input. Please enter an integer value.")
 
-# Run the main function
+if __name__ == "__main__":
+    main()'''
+
+
+def find_top_five_numbers():
+    numbers = []
+
+    while True:
+        user_input = input("Enter a number (or press Enter to stop): ")
+
+
+        if user_input == "":
+            break
+
+        try:
+
+            number = float(user_input)
+            numbers.append(number)
+        except ValueError:
+
+            print("Please enter a valid number.")
+
+
+    numbers.sort(reverse=True)
+
+
+    top_five = numbers[:5]
+
+    print("\nThe five greatest numbers are:", top_five)
+
+
+
+def main():
+    find_top_five_numbers()
+
 if __name__ == "__main__":
     main()
