@@ -105,7 +105,7 @@ print(first)
 print(second)
 print(third)
 print(fourth)'''
-games = {"monopoly", "chess", "cluedo"}
+'''games = {"monopoly", "chess", "cluedo"}
 print(games)
 games.add("dominion")
 games.remove("chess")
@@ -138,5 +138,30 @@ def main():
         print("Please enter a valid number.")
 
 # Run the main function
+if __name__ == "__main__":
+    main()'''
+import random
+
+def roll_dice(number_of_dice):
+    total_sum = 0
+    for i in range(number_of_dice):
+        roll = random.randint(1, 6)
+        print(f"Roll {i+1}: {roll}")
+        total_sum += roll
+    return total_sum
+
+def main():
+    try:
+        number_of_dice = int(input("How many dice do you want to roll? "))
+        if number_of_dice <= 0:
+            print("Please enter a positive number.")
+            return
+
+        total = roll_dice(number_of_dice)
+        print(f"\nThe total sum of all dice rolls is: {total}")
+
+    except ValueError:
+        print("Invalid input. Please enter an integer value.")
+
 if __name__ == "__main__":
     main()
