@@ -1,31 +1,247 @@
-# Function to determine the season based on the month number
-def get_season(month):
-    # Tuple holding the seasons in the order of their corresponding months
-    seasons = ("Winter", "Winter", "Spring", "Spring", "Spring", "Summer",
-               "Summer", "Summer", "Autumn", "Autumn", "Autumn", "Winter")
+'''print("Hello Vidhi")
 
-    # Check if the month is within the valid range
-    if 1 <= month <= 12:
-        # Subtract 1 to match the index (since list/tuple indices start from 0)
-        return seasons[month - 1]
+name = input("Name? ")
+print(f"Hello, {name}! Very Nice to meet you!")
+
+import math
+radius = float(input("Enter the radius of the circle: "))
+area = math.pi * radius ** 2
+print(f"The area of the circle with radius {radius} is {area:.2f}")
+
+length = float(input("Enter the length of the rectangle: "))
+width = float(input("Enter the width of the rectangle: "))
+perimeter = 2 * (length + width)
+area = length * width
+print(f"The perimeter of the rectangle is {perimeter:.2f}")
+print(f"The area of the rectangle is {area:.2f}")
+
+num1 = int(input("Enter the first integer: "))
+num2 = int(input("Enter the second integer: "))
+num3 = int(input("Enter the third integer: "))
+
+sum_of_numbers = num1 + num2 + num3
+product_of_numbers = num1 * num2 * num3
+average_of_numbers = sum_of_numbers / 3
+
+print(f"The sum of the numbers is: {sum_of_numbers}")
+print(f"The product of the numbers is: {product_of_numbers}")
+print(f"The average of the numbers is: {average_of_numbers:.2f}")
+
+LOT_TO_GRAMS = 13.3
+POUND_TO_LOTS = 32
+TALENT_TO_POUNDS = 20
+
+talents = int(input("Enter the number of talents: "))
+pounds = int(input("Enter the number of pounds: "))
+lots = int(input("Enter the number of lots: "))
+
+total_lots = (talents * TALENT_TO_POUNDS * POUND_TO_LOTS) + (pounds * POUND_TO_LOTS) + lots
+total_grams = total_lots * LOT_TO_GRAMS
+
+kilograms = int(total_grams // 1000)
+grams = total_grams % 1000
+print(f"The total weight is {kilograms} kilograms and {grams:.2f} grams.")
+
+import random
+code_3_digit = [random.randint(0, 9) for _ in range(3)]
+code_4_digit = [random.randint(1, 6) for _ in range(4)]
+print(f"3-digit lock code: {''.join(map(str, code_3_digit))}")
+print(f"4-digit lock code: {''.join(map(str, code_4_digit))}")
+
+SIZE_LIMIT = 42
+zander_length = float(input("Enter the length of the zander in centimeters: "))
+if zander_length < SIZE_LIMIT:
+    difference = SIZE_LIMIT - zander_length
+    print(f"The zander is too small and must be released back into the lake. It is {difference:.2f} cm below the size limit.")
+else:
+    print("The zander meets the size limit. You can keep it!")
+
+cabin_class = input("Enter the cabin class (LUX, A, B, C): ").upper()
+if cabin_class == "LUX":
+    print("LUX: upper-deck cabin with a balcony.")
+elif cabin_class == "A":
+    print("A: above the car deck, equipped with a window.")
+elif cabin_class == "B":
+    print("B: windowless cabin above the car deck.")
+elif cabin_class == "C":
+    print("C: windowless cabin below the car deck.")
+else:
+    print("Invalid cabin class.")
+
+gender = input("Enter your biological gender (male/female): ").lower()
+hemoglobin_value = float(input("Enter your hemoglobin value (g/l): "))
+
+if gender == "female":
+    if hemoglobin_value < 117:
+        print("Your hemoglobin level is low.")
+    elif 117 <= hemoglobin_value <= 155:
+        print("Your hemoglobin level is normal.")
     else:
-        return "Invalid month number"
+        print("Your hemoglobin level is high.")
+elif gender == "male":
+    if hemoglobin_value < 134:
+        print("Your hemoglobin level is low.")
+    elif 134 <= hemoglobin_value <= 167:
+        print("Your hemoglobin level is normal.")
+    else:
+        print("Your hemoglobin level is high.")
+else:
+    print("Invalid gender entered. Please enter either 'male' or 'female'.")
+
+year = int(input("Enter a year: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")'''
 
 
-# Main function to get user input and print the corresponding season
+'''days_of_the_week = ("Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday")
+day_number = int(input("Enter a day number 1-7: "))
+print(days_of_the_week[day_number])
+fruits = "apple", "banana", "cherry", "blueberry"
+print(type(fruits))
+(first, second, third,fourth) = fruits
+print(first)
+print(second)
+print(third)
+print(fourth)'''
+'''games = {"monopoly", "chess", "cluedo"}
+print(games)
+games.add("dominion")
+games.remove("chess")
+print(games)
+for g in games:
+    print(g)
+import random
+
+# Function to roll the dice and calculate the sum
+def roll_dice(number_of_dice):
+    total_sum = 0
+    for _ in range(number_of_dice):
+        roll = random.randint(1, 6)  # Simulate a die roll (1 to 6)
+        total_sum += roll
+        print(f"Die roll: {roll}")  # Print the result of each roll
+    return total_sum
+
+# Main function
 def main():
     try:
-        # Ask for the month number
-        month = int(input("Enter a month number (1-12): "))
+        number_of_dice = int(input("How many dice do you want to roll? "))
+        if number_of_dice <= 0:
+            print("Please enter a positive number.")
+            return
 
-        # Get the season and print the result
-        season = get_season(month)
-        print(f"The corresponding season is: {season}")
+        total_sum = roll_dice(number_of_dice)
+        print(f"\nThe sum of all dice rolls is: {total_sum}")
 
     except ValueError:
-        print("Please enter a valid integer for the month.")
-
+        print("Please enter a valid number.")
 
 # Run the main function
+if __name__ == "__main__":
+    main()'''
+'''import random
+
+def roll_dice(number_of_dice):
+    total_sum = 0
+    for i in range(number_of_dice):
+        roll = random.randint(1, 6)
+        print(f"Roll {i+1}: {roll}")
+        total_sum += roll
+    return total_sum
+
+def main():
+    try:
+        number_of_dice = int(input("How many dice do you want to roll? "))
+        if number_of_dice <= 0:
+            print("Please enter a positive number.")
+            return
+
+        total = roll_dice(number_of_dice)
+        print(f"\nThe total sum of all dice rolls is: {total}")
+
+    except ValueError:
+        print("Invalid input. Please enter an integer value.")
+
+if __name__ == "__main__":
+    main()'''
+
+'''def find_top_five_numbers():
+    numbers = []
+
+    while True:
+        user_input = input("Enter a number (or press Enter to stop): ")
+
+
+        if user_input == "":
+            break
+
+        try:
+
+            number = float(user_input)
+            numbers.append(number)
+        except ValueError:
+
+            print("Please enter a valid number.")
+
+
+    numbers.sort(reverse=True)
+
+    top_five = numbers[:5]
+
+    print("\nThe five greatest numbers are:", top_five)
+
+
+def main():
+    find_top_five_numbers()
+
+if __name__ == "__main__":
+    main()'''
+
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+            return True
+
+def main():
+    try:
+        number = int(input("Enter an integer: "))
+
+        if is_prime(number):
+            print(f"{number} is a prime number.")
+        else:
+            print(f"{number} is not a prime number.")
+
+    except ValueError:
+        print("Please enter a valid integer.")
+
+if __name__ == "__main__":
+    main()
+
+
+def get_cities():
+    cities = []
+
+    for i in range(5):
+        city = input(f"Enter the name of city {i + 1}: ")
+        cities.append(city)
+
+    return cities
+
+
+def print_cities(cities):
+    print("\nThe cities you entered are:")
+
+    for city in cities:
+        print(city)
+
+
+def main():
+    cities = get_cities()
+    print_cities(cities)
+
 if __name__ == "__main__":
     main()
