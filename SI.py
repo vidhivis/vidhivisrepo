@@ -264,3 +264,93 @@ while True:
         print("Invalid input. Please enter a valid number.")
 pi_value = approximate_pi(num_points)
 print(f"Approximation of π using {num_points} random points: {pi_value}")'''
+# Assignment - 7
+'''import random
+def roll_dice():
+    return random.randint(1, 6)
+def main():
+    roll = 0
+    while roll != 6:
+        roll = roll_dice()
+        print(f"Rolled: {roll}")
+if __name__ == "__main__":
+    main()'''
+'''import random
+def roll_dice(sides):
+    return random.randint(1, sides)
+def main():
+    while True:
+        try:
+            sides = int(input("Enter the number of sides on the dice: "))
+            if sides < 2:
+                print("Please enter a number greater than or equal to 2.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+    roll = 0
+    while roll != sides:
+        roll = roll_dice(sides)
+        print(f"Rolled: {roll}")
+    print(f"Congratulations! You rolled the maximum value: {sides}")
+if __name__ == "__main__":
+    main()'''
+'''def gallons_to_liters(gallons):
+    liters = gallons * 3.78541
+    return liters
+def main():
+    while True:
+        try:
+            gallons = float(input("Enter volume in gallons (negative value to quit): "))
+            if gallons < 0:
+                print("Negative value entered. Program ending.")
+                break
+            liters = gallons_to_liters(gallons)
+            print(f"{gallons} gallons is equal to {liters:.2f} liters.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+if __name__ == "__main__":
+    main()'''
+'''def sum_of_list(numbers):
+    return sum(numbers)
+def main():
+    numbers = [10, 20, 30, 40, 50]
+    total_sum = sum_of_list(numbers)
+    print(f"The sum of the numbers in the list is: {total_sum}")
+if __name__ == "__main__":
+    main()'''
+'''def remove_odd_numbers(numbers):
+    return [num for num in numbers if num % 2 == 0]
+def main():
+    original_list = [10, 21, 32, 43, 54, 65, 76, 87, 98]
+    even_list = remove_odd_numbers(original_list)
+    print("Original list:", original_list)
+    print("List after removing odd numbers:", even_list)
+if __name__ == "__main__":
+    main()'''
+import math
+def calculate_unit_price(diameter, price):
+    radius = diameter / 2  # Calculate the radius
+    area = math.pi * (radius ** 2)
+    area_square_meters = area / 10000
+    unit_price = price / area_square_meters
+    return unit_price
+def main():
+    print("Enter details for Pizza 1:")
+    diameter1 = float(input("Diameter (cm): "))
+    price1 = float(input("Price (€): "))
+    print("Enter details for Pizza 2:")
+    diameter2 = float(input("Diameter (cm): "))
+    price2 = float(input("Price (€): "))
+    unit_price1 = calculate_unit_price(diameter1, price1)
+    unit_price2 = calculate_unit_price(diameter2, price2)
+    print(f"\nUnit price for Pizza 1: {unit_price1:.2f} €/m²")
+    print(f"Unit price for Pizza 2: {unit_price2:.2f} €/m²")
+    if unit_price1 < unit_price2:
+        print("Pizza 1 provides better value for money.")
+    elif unit_price2 < unit_price1:
+        print("Pizza 2 provides better value for money.")
+    else:
+        print("Both pizzas provide the same value for money.")
+if __name__ == "__main__":
+    main()
