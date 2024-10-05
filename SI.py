@@ -328,7 +328,7 @@ def main():
     print("List after removing odd numbers:", even_list)
 if __name__ == "__main__":
     main()'''
-import math
+'''import math
 def calculate_unit_price(diameter, price):
     radius = diameter / 2  # Calculate the radius
     area = math.pi * (radius ** 2)
@@ -352,5 +352,251 @@ def main():
         print("Pizza 2 provides better value for money.")
     else:
         print("Both pizzas provide the same value for money.")
+if __name__ == "__main__":
+    main()'''
+# Assignment - 8
+'''class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.current_speed = 0
+        self.travelled_distance = 0
+
+    def __str__(self):
+        return (f"Registration Number: {self.registration_number}\n"
+                f"Maximum Speed: {self.max_speed} km/h\n"
+                f"Current Speed: {self.current_speed} km/h\n"
+                f"Travelled Distance: {self.travelled_distance} km")
+
+def main():
+    new_car = Car("ABC-123", 142)
+    print(new_car)
+
+if __name__ == "__main__":
+    main()
+
+
+class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.current_speed = 0
+        self.travelled_distance = 0
+
+    def accelerate(self, change):
+        self.current_speed += change
+        if self.current_speed > self.max_speed:
+            self.current_speed = self.max_speed
+        elif self.current_speed < 0:
+            self.current_speed = 0
+
+    def __str__(self):
+        return (f"Registration Number: {self.registration_number}\n"
+                f"Maximum Speed: {self.max_speed} km/h\n"
+                f"Current Speed: {self.current_speed} km/h\n"
+                f"Travelled Distance: {self.travelled_distance} km")
+
+def main():
+    new_car = Car("ABC-123", 142)
+    new_car.accelerate(30)
+    new_car.accelerate(70)
+    new_car.accelerate(50)
+    print(f"Current Speed after acceleration: {new_car.current_speed} km/h")
+    new_car.accelerate(-200)
+    print(f"Final Speed after emergency brake: {new_car.current_speed} km/h")
+if __name__ == "__main__":
+    main()'''
+
+
+'''class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.current_speed = 0
+        self.travelled_distance = 0
+
+    def accelerate(self, change):
+        self.current_speed += change
+        if self.current_speed > self.max_speed:
+            self.current_speed = self.max_speed
+        elif self.current_speed < 0:
+            self.current_speed = 0
+
+    def drive(self, hours):
+        self.travelled_distance += self.current_speed * hours
+
+    def __str__(self):
+        return (f"Registration Number: {self.registration_number}\n"
+                f"Maximum Speed: {self.max_speed} km/h\n"
+                f"Current Speed: {self.current_speed} km/h\n"
+                f"Travelled Distance: {self.travelled_distance} km")
+def main():
+    new_car = Car("ABC-123", 142)
+    new_car.accelerate(30)
+    new_car.accelerate(70)
+    new_car.accelerate(50)
+    print(f"Current Speed after acceleration: {new_car.current_speed} km/h")
+    new_car.accelerate(-200)
+    print(f"Final Speed after emergency brake: {new_car.current_speed} km/h")
+    new_car.accelerate(60)
+    new_car.drive(1.5)
+    print(f"Travelled Distance after driving: {new_car.travelled_distance} km")
+if __name__ == "__main__":
+    main()'''
+'''import random
+
+class Car:
+    def __init__(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.current_speed = 0
+        self.distance_traveled = 0
+
+    def accelerate(self):
+        speed_change = random.randint(-10, 15)
+        self.current_speed += speed_change
+        if self.current_speed < 0:
+            self.current_speed = 0
+        elif self.current_speed > self.max_speed:
+            self.current_speed = self.max_speed
+
+    def drive(self):
+        self.distance_traveled += self.current_speed
+
+def print_race_status(cars):
+    print(f"{'Car':<10}{'Max Speed (km/h)':<20}{'Current Speed (km/h)':<20}{'Distance Traveled (km)':<20}")
+    print("=" * 70)
+    for car in cars:
+        print(f"{car.registration_number:<10}{car.max_speed:<20}{car.current_speed:<20}{car.distance_traveled:<20.2f}")
+    print("\n")
+
+def main():
+    cars = []
+    for i in range(1, 11):
+        reg_num = f"ABC-{i}"
+        max_speed = random.randint(100, 200)
+        cars.append(Car(reg_num, max_speed))
+    race_over = False
+    hour = 0
+    while not race_over:
+        hour += 1
+        print(f"Hour: {hour}")
+        for car in cars:
+            car.accelerate()
+            car.drive()
+            if car.distance_traveled >= 10000:
+                race_over = True
+        print_race_status(cars)
+    print("Race Over!\nFinal Results:")
+    print_race_status(cars)
+
+if __name__ == "__main__":
+    main()'''
+
+'''class InsufficientFundsException(Exception):
+    """Custom exception for insufficient funds."""
+    pass
+
+class NegativeAmountException(Exception):
+    """Custom exception for negative amount."""
+    pass
+
+def get_float_input(prompt):
+    """Function to get numeric input and handle invalid input."""
+    while True:
+        try:
+            value = float(input(prompt))
+            return value
+        except ValueError:
+            print("Invalid input! Please enter a numeric value.")
+
+def main():
+    try:
+        balance = get_float_input("Enter your account balance: ")
+        if balance < 0:
+            raise NegativeAmountException("Account balance cannot be negative!")
+        withdrawal_amount = get_float_input("Enter the amount to withdraw: ")
+        if withdrawal_amount < 0:
+            raise NegativeAmountException("Withdrawal amount cannot be negative!")
+        if withdrawal_amount > balance:
+            raise InsufficientFundsException("Withdrawal amount exceeds account balance!")
+        balance -= withdrawal_amount
+        print(f"Withdrawal successful! Your new balance is: {balance:.2f}")
+
+    except NegativeAmountException as e:
+        print(f"Error: {e}")
+    except InsufficientFundsException as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()'''
+
+
+def write_notes(filename):
+    """Writes new notes to the file, overwriting any existing content."""
+    with open(filename, 'w') as file:
+        print("Enter your notes (type 'STOP' to finish):")
+        while True:
+            note = input()
+            if note.upper() == 'STOP':
+                break
+            file.write(note + '\n')
+        print("Notes saved successfully!\n")
+
+
+def read_notes(filename):
+    """Reads and displays the existing notes from the file."""
+    try:
+        with open(filename, 'r') as file:
+            notes = file.read()
+            if notes:
+                print("Here are your notes:\n")
+                print(notes)
+            else:
+                print("No notes found in the file.\n")
+    except FileNotFoundError:
+        print("No notes file found. Please write new notes first.\n")
+
+
+def append_notes(filename):
+    """Appends additional notes to the existing file."""
+    try:
+        with open(filename, 'a') as file:
+            print("Enter additional notes (type 'STOP' to finish):")
+            while True:
+                note = input()
+                if note.upper() == 'STOP':
+                    break
+                file.write(note + '\n')
+            print("Notes appended successfully!\n")
+    except FileNotFoundError:
+        print("No notes file found. Please write new notes first.\n")
+
+
+def main():
+    filename = "notes.txt"
+
+    while True:
+        print("Menu:")
+        print("1. Write new notes (this will overwrite any existing notes)")
+        print("2. Read existing notes")
+        print("3. Append additional notes")
+        print("4. Exit")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            write_notes(filename)
+        elif choice == '2':
+            read_notes(filename)
+        elif choice == '3':
+            append_notes(filename)
+        elif choice == '4':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.\n")
+
+
 if __name__ == "__main__":
     main()
