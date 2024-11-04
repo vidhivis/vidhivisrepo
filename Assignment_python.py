@@ -198,7 +198,7 @@ def main():
 if __name__ == "__main__":
     main()'''
 
-def is_prime(number):
+'''def is_prime(number):
     if number <= 1:
         return False
     for i in range(2, int(number ** 0.5) + 1):
@@ -244,4 +244,17 @@ def main():
     print_cities(cities)
 
 if __name__ == "__main__":
-    main()
+    main()'''
+'''list_1 = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+
+result = list_1[2:5]
+
+print(result)'''
+
+import array
+
+arr = array.array('i', [1, 3, 5, 7, 9])
+
+print("Original array:", arr)
+arr.append(11)
+print("New array after appending 11:", arr)nk
