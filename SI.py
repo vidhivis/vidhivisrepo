@@ -532,7 +532,7 @@ if __name__ == "__main__":
     main()'''
 
 
-def write_notes(filename):
+'''def write_notes(filename):
     """Writes new notes to the file, overwriting any existing content."""
     with open(filename, 'w') as file:
         print("Enter your notes (type 'STOP' to finish):")
@@ -599,4 +599,90 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main()'''
+# Assignment - 1 - AI with python
+# Question - 1
+'''import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(-10, 10, 200)
+
+y1 = 2 * x + 1
+y2 = 2 * x + 2
+y3 = 2 * x + 3
+
+plt.figure(figsize=(10, 6))
+
+plt.plot(x, y1, color="black", linestyle="solid", linewidth=1.5, label="y = 2x + 1")
+plt.plot(x, y2, color="red", linestyle="dashed", linewidth=1.5, label="y = 2x + 2")
+plt.plot(x, y3, color="green", linestyle="dotted", linewidth=1.5, label="y = 2x + 3")
+
+plt.title("Graphs of the Lines y=2x+1, y=2x+2, y=2x+3")
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.legend()
+
+plt.grid(True)
+plt.show()'''
+# Question - 2
+'''import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+y = np.array([-0.57, -2.57, -4.80, -7.36, -8.78, -10.52, -12.85, -14.69, -16.78])
+
+
+plt.figure(figsize=(8, 5))
+plt.scatter(x, y, marker='+', color="black")
+
+plt.title("Scatter Plot of Points (x, y)")
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.grid(True)
+plt.show()'''
+# question - 3
+'''import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("weight-height.csv")
+
+height_inches = data['Height']
+weight_pounds = data['Weight']
+
+height_cm = height_inches * 2.54
+
+weight_kg = weight_pounds * 0.453592
+
+mean_height_cm = np.mean(height_cm)
+mean_weight_kg = np.mean(weight_kg)
+
+print(f"Mean Height (cm): {mean_height_cm}")
+print(f"Mean Weight (kg): {mean_weight_kg}")
+
+plt.figure(figsize=(8, 5))
+plt.hist(height_cm, bins=20, color="skyblue", edgecolor="black")
+plt.title("Histogram of Heights (in cm)")
+plt.xlabel("Height (cm)")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()'''
+# question - 4
+import numpy as np
+
+A = np.array([[1, 2, 3],
+              [0, 1, 4],
+              [5, 6, 0]])
+
+A_inv = np.linalg.inv(A)
+
+AA_inv = np.dot(A, A_inv)
+A_invA = np.dot(A_inv, A)
+
+print("A * A_inv:\n", AA_inv)
+print("A_inv * A:\n", A_invA)
+
+
+
