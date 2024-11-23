@@ -1,4 +1,4 @@
-# Assignment - 4
+'''# Assignment - 4
 # Question - 1
 
 import numpy as np
@@ -332,4 +332,259 @@ Findings:
 2. An optimal alpha is chosen where the model performs the best (highest \( R^2 \) score) on the testing data.
 3. Ridge tends to perform better when multicollinearity is present, whereas LASSO can perform feature selection by
    shrinking some coefficients to zero.
+"""
+'''
+# Assignment - 5
+# Question - 1
+'''import pandas as pd
+
+file_path = 'C:/Users/Vidhi Soni/PycharmProjects/vidhivisrepo/bank.csv'
+
+df = pd.read_csv(file_path, delimiter=';')
+
+print("First few rows of the DataFrame:")
+print(df.head())
+
+print("\nColumn Names and Variable Types:")
+print(df.dtypes)'''
+# Question - 2
+'''import pandas as pd
+
+# Load your CSV file
+file_path = 'C:/Users/Vidhi Soni/PycharmProjects/vidhivisrepo/bank.csv'
+
+df = pd.read_csv(file_path, delimiter=';')
+
+# Create a second DataFrame with the specified columns
+df2 = df[['y', 'job', 'marital', 'default', 'housing', 'poutcome']]
+
+# Display the first few rows of the new DataFrame
+print(df2.head())'''
+# Question - 3
+'''import pandas as pd
+
+file_path = 'C:/Users/Vidhi Soni/PycharmProjects/vidhivisrepo/bank.csv'
+
+df = pd.read_csv(file_path, delimiter=';')
+print(df.columns)
+df2 = df[['y', 'job', 'marital', 'default', 'housing', 'poutcome']]
+print(df2.head())'''
+# Question - 4
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = 'C:/Users/Vidhi Soni/PycharmProjects/vidhivisrepo/bank.csv'
+df = pd.read_csv(file_path, delimiter=';')
+df2 = df[['y', 'job', 'marital', 'default', 'housing', 'poutcome']]
+df3 = pd.get_dummies(df2, columns=['job', 'marital', 'default', 'housing', 'poutcome'])
+df3 = df3.apply(pd.to_numeric, errors='coerce')
+correlation_matrix = df3.corr()
+plt.figure(figsize=(12, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+
+plt.title('Correlation Heatmap of Variables in df3')
+plt.show()
+# Question - 5
+
+y = df3['y']
+X = df3.drop(columns=['y'])
+print("Explanatory variables (X):")
+print(X.head())
+print("\nTarget variable (y):")
+print(y.head())
+# Question - 6
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+print(f"Training set size: X_train: {X_train.shape}, y_train: {y_train.shape}")
+print(f"Test set size: X_test: {X_test.shape}, y_test: {y_test.shape}")
+# Question - 7
+
+print(f"Number of NaN values in 'y': {y.isna().sum()}")
+
+df3_cleaned = df3.dropna(subset=['y'])
+
+print(f"Shape of cleaned dataframe: {df3_cleaned.shape}")
+
+X_cleaned = df3_cleaned.drop(columns=['y'])
+y_cleaned = df3_cleaned['y']
+
+if len(X_cleaned) > 0:
+
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X_cleaned, y_cleaned, test_size=0.25, random_state=42)
+
+
+    from sklearn.linear_model import LogisticRegression
+    model = LogisticRegression(max_iter=1000, random_state=42)
+    model.fit(X_train, y_train)
+
+    y_pred = model.predict(X_test)
+
+    from sklearn.metrics import accuracy_score, classification_report
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Accuracy: {accuracy * 100:.2f}%")
+    print("\nClassification Report:")
+    print(classification_report(y_test, y_pred))
+
+else:
+    print("After removing rows with NaN values in 'y', the dataset is empty. Please check the data.")
+# Assignment - 8
+
+from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+y_pred = model.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
+
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+print("\nConfusion Matrix:")
+print(conf_matrix)
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'])
+plt.title("Confusion Matrix")
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.show()
+# Question - 9
+# Import necessary libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier  # Import KNN classifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Assuming df3 is the dataframe after applying pd.get_dummies
+
+# Define X (explanatory variables) and y (target variable)
+X = df3.drop(columns=['y'])  # All columns except 'y'
+y = df3['y']  # The 'y' column is the target variable
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# Initialize the KNN model with k=3
+knn_model = KNeighborsClassifier(n_neighbors=3)
+
+# Train the KNN model with the training data
+knn_model.fit(X_train, y_train)
+
+# Make predictions on the test set using knn_model
+y_pred_knn = knn_model.predict(X_test)
+
+# Compute the accuracy score for KNN
+accuracy_knn = accuracy_score(y_test, y_pred_knn)
+print(f"Accuracy (KNN with k=3): {accuracy_knn * 100:.2f}%")
+
+# Print the classification report for KNN
+print("\nClassification Report (KNN with k=3):")
+print(classification_report(y_test, y_pred_knn))
+
+# Compute the confusion matrix for KNN
+conf_matrix_knn = confusion_matrix(y_test, y_pred_knn)
+
+# Print the confusion matrix
+print("\nConfusion Matrix (KNN with k=3):")
+print(conf_matrix_knn)
+
+# Plot the confusion matrix for KNN as a heatmap
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix_knn, annot=True, fmt='d', cmap='Blues', xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'])
+plt.title("Confusion Matrix (KNN with k=3)")
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.show()
+
+# Question - 10
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Assuming X and y are already defined from your dataset
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# 1. Logistic Regression Model
+log_reg_model = LogisticRegression(max_iter=1000)
+log_reg_model.fit(X_train, y_train)
+y_pred_logreg = log_reg_model.predict(X_test)
+
+# Accuracy and Confusion Matrix for Logistic Regression
+accuracy_logreg = accuracy_score(y_test, y_pred_logreg)
+print(f"Accuracy (Logistic Regression): {accuracy_logreg * 100:.2f}%")
+print("\nClassification Report (Logistic Regression):")
+print(classification_report(y_test, y_pred_logreg))
+conf_matrix_logreg = confusion_matrix(y_test, y_pred_logreg)
+print("\nConfusion Matrix (Logistic Regression):")
+print(conf_matrix_logreg)
+
+# Plot Confusion Matrix for Logistic Regression
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix_logreg, annot=True, fmt='d', cmap='Blues', xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'])
+plt.title("Confusion Matrix (Logistic Regression)")
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.show()
+
+""" Findings from Logistic Regression:
+- The logistic regression model has an accuracy score (accuracy_logreg * 100).
+- The confusion matrix shows the number of correct/incorrect predictions.
+- The classification report includes precision, recall, and f1-score metrics.
+- The heatmap visualizes the confusion matrix.
+"""
+
+# 2. K-Nearest Neighbors Model (k=3)
+knn_model = KNeighborsClassifier(n_neighbors=3)
+knn_model.fit(X_train, y_train)
+y_pred_knn = knn_model.predict(X_test)
+
+# Accuracy and Confusion Matrix for KNN
+accuracy_knn = accuracy_score(y_test, y_pred_knn)
+print(f"\nAccuracy (KNN with k=3): {accuracy_knn * 100:.2f}%")
+print("\nClassification Report (KNN with k=3):")
+print(classification_report(y_test, y_pred_knn))
+conf_matrix_knn = confusion_matrix(y_test, y_pred_knn)
+print("\nConfusion Matrix (KNN with k=3):")
+print(conf_matrix_knn)
+
+# Plot Confusion Matrix for KNN
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_matrix_knn, annot=True, fmt='d', cmap='Blues', xticklabels=['No', 'Yes'], yticklabels=['No', 'Yes'])
+plt.title("Confusion Matrix (KNN with k=3)")
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.show()
+
+""" Findings from KNN:
+- The KNN model (with k=3) has an accuracy score (accuracy_knn * 100).
+- The confusion matrix shows the number of correct/incorrect predictions.
+- The classification report includes precision, recall, and f1-score metrics.
+- The heatmap visualizes the confusion matrix.
+"""
+
+# Compare accuracies
+print("\n--- Comparison of Models ---")
+print(f"Accuracy (Logistic Regression): {accuracy_logreg * 100:.2f}%")
+print(f"Accuracy (KNN with k=3): {accuracy_knn * 100:.2f}%")
+
+""" Comparison of Logistic Regression and KNN (k=3):
+- Compare the accuracy of both models. 
+- The confusion matrices can help in understanding how each model is performing in terms of false positives, false negatives, true positives, and true negatives.
+- Based on the accuracy, you can choose which model performs better for your dataset.
 """

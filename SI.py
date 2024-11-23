@@ -600,141 +600,163 @@ def main():
 
 if __name__ == "__main__":
     main()'''
-'''import pandas as pd
-import matplotlib.pyplot as plt
+# Assignment - 1 - AI with python
+# Question - 1
+'''import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report
 
-df = pd.read_csv("iris.csv")
-print(df)
-x = df.iloc[:, 0:4].values
-y = df.iloc[:, 4].values
-print(x)
-print(y)
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
-classifier = KNeighborsClassifier(n_neighbors=5)
-classifier.fit(x_train, y_train)
-y_pred = classifier.predict(x_test)
-metrics.confusionMatrixDisplay.from_estimator(classifier, x_test, y_test)
-plt.show()
-print(classification_report(y_test, y_pred))
-error = []
-for k in range(1, 20):
-    knn = KNeighborsClassifier(n_neighbors=k)
-    knn.fit(x_train, y_train)
-    y_pred = knn.predict(X_test)
-    error.append(np.mean(y_pred != y_test))
-plt.plot(range(1, 20), error, marker='o', markersize=10)
-plt.xlabel('k')
-plt.ylabel('Mean error')
+x = np.linspace(-10, 10, 200)
+
+y1 = 2 * x + 1
+y2 = 2 * x + 2
+y3 = 2 * x + 3
+
+plt.figure(figsize=(10, 6))
+
+plt.plot(x, y1, color="black", linestyle="solid", linewidth=1.5, label="y = 2x + 1")
+plt.plot(x, y2, color="red", linestyle="dashed", linewidth=1.5, label="y = 2x + 2")
+plt.plot(x, y3, color="green", linestyle="dotted", linewidth=1.5, label="y = 2x + 3")
+
+plt.title("Graphs of the Lines y=2x+1, y=2x+2, y=2x+3")
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.legend()
+
+plt.grid(True)
 plt.show()'''
-# Required Libraries
-import numpy as np
+# Question - 2
+'''import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+y = np.array([-0.57, -2.57, -4.80, -7.36, -8.78, -10.52, -12.85, -14.69, -16.78])
+
+
+plt.figure(figsize=(8, 5))
+plt.scatter(x, y, marker='+', color="black")
+
+plt.title("Scatter Plot of Points (x, y)")
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.grid(True)
+plt.show()'''
+# question - 3
+'''import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.datasets import load_diabetes
-from sklearn.model_selection import train_test_split
+
+data = pd.read_csv("weight-height.csv")
+
+height_inches = data['Height']
+weight_pounds = data['Weight']
+
+height_cm = height_inches * 2.54
+
+weight_kg = weight_pounds * 0.453592
+
+mean_height_cm = np.mean(height_cm)
+mean_weight_kg = np.mean(weight_kg)
+
+print(f"Mean Height (cm): {mean_height_cm}")
+print(f"Mean Weight (kg): {mean_weight_kg}")
+
+plt.figure(figsize=(8, 5))
+plt.hist(height_cm, bins=20, color="skyblue", edgecolor="black")
+plt.title("Histogram of Heights (in cm)")
+plt.xlabel("Height (cm)")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()'''
+'''# question - 4
+import numpy as np
+
+A = np.array([[1, 2, 3],
+              [0, 1, 4],
+              [5, 6, 0]])
+
+A_inv = np.linalg.inv(A)
+
+AA_inv = np.dot(A, A_inv)
+A_invA = np.dot(A_inv, A)
+
+print("A * A_inv:\n", AA_inv)
+print("A_inv * A:\n", A_invA)'''
+# Assignment - 3
+# Question - 1
+'''import numpy as np
+import matplotlib.pyplot as plt
+
+n_values = [500, 1000, 2000, 5000, 10000, 15000, 20000, 50000, 100000]
+
+for n in n_values:
+    dice1 = np.random.randint(1, 7, size=n)  # Roll dice 1
+    dice2 = np.random.randint(1, 7, size=n)  # Roll dice 2
+    s = dice1 + dice2
+
+    h, h2 = np.histogram(s, range(2, 14))  # Histogram of sums
+
+    plt.figure(figsize=(8, 5))
+    plt.bar(h2[:-1], h / n)
+    plt.title(f"Histogram of Dice Sums for n = {n}")
+    plt.xlabel("Sum of two dice")
+    plt.ylabel("Relative Frequency")
+    plt.xticks(range(2, 13))
+    plt.show()'''
+# Question - 2
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
-from sklearn.preprocessing import StandardScaler
 
-# Load Diabetes Dataset
-data = load_diabetes()
-X = data.data
-y = data.target
+data = pd.read_csv('weight-height.csv')
 
-# Convert to DataFrame for clarity
-columns = data.feature_names
-df = pd.DataFrame(X, columns=columns)
-df['target'] = y
+print(data.head())
 
-# Feature Exploration
-print("Dataset Head:\n", df.head())
-print("\nFeature Correlation with Target:")
-print(df.corr()['target'].sort_values(ascending=False))
+plt.figure(figsize=(10, 6))
+plt.scatter(data['Height'], data['Weight'], alpha=0.5)
+plt.title('Scatter Plot of Height vs. Weight')
+plt.xlabel('Height (inches)')
+plt.ylabel('Weight (pounds)')
+plt.grid()
+plt.show()
 
-"""
-Explanation:
-We start by analyzing the correlation of each variable with the target. Higher correlation may suggest that a feature is
-a good candidate for predicting diabetes progression.
-"""
+X = data[['Height']]
+y = data['Weight']
 
-# Split the data for initial analysis with just bmi and s5
-X_baseline = df[['bmi', 's5']]
-X_train, X_test, y_train, y_test = train_test_split(X_baseline, y, test_size=0.2, random_state=42)
+model = LinearRegression()
+model.fit(X, y)
 
-# Standardize the features
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
+plt.figure(figsize=(10, 6))
+plt.scatter(X, y, alpha=0.5, label='Data points')
+plt.plot(X, model.predict(X), color='red', label='Regression line')
+plt.title('Height vs. Weight with Regression Line')
+plt.xlabel('Height (inches)')
+plt.ylabel('Weight (pounds)')
+plt.legend()
+plt.grid()
+plt.show()
 
-# Baseline model using only 'bmi' and 's5'
-model_baseline = LinearRegression()
-model_baseline.fit(X_train_scaled, y_train)
+predictions = model.predict(X)
+rmse = np.sqrt(mean_squared_error(y, predictions))
+r2 = r2_score(y, predictions)
 
-# Predictions and Metrics for baseline
-y_pred_baseline = model_baseline.predict(X_test_scaled)
-mse_baseline = mean_squared_error(y_test, y_pred_baseline)
-r2_baseline = r2_score(y_test, y_pred_baseline)
+print(f'RMSE: {rmse}')
+print(f'R²: {r2}')
 
-print("\nBaseline Model Performance (using only bmi and s5):")
-print(f"Mean Squared Error: {mse_baseline}")
-print(f"R2 Score: {r2_baseline}")
+if r2 < 0.5:
+    quality = "Poor fit"
+elif 0.5 <= r2 < 0.8:
+    quality = "Moderate fit"
+else:
+    quality = "Good fit"
 
-# Add additional feature: Let's choose 'bp' (Blood Pressure) based on correlation analysis
-X_expanded = df[['bmi', 's5', 'bp']]
-X_train_exp, X_test_exp, y_train, y_test = train_test_split(X_expanded, y, test_size=0.2, random_state=42)
+print(f'Quality of the regression: {quality}')
 
-# Standardize the features
-X_train_exp_scaled = scaler.fit_transform(X_train_exp)
-X_test_exp_scaled = scaler.transform(X_test_exp)
 
-# Expanded model with an additional variable
-model_expanded = LinearRegression()
-model_expanded.fit(X_train_exp_scaled, y_train)
 
-# Predictions and Metrics for expanded model
-y_pred_expanded = model_expanded.predict(X_test_exp_scaled)
-mse_expanded = mean_squared_error(y_test, y_pred_expanded)
-r2_expanded = r2_score(y_test, y_pred_expanded)
 
-print("\nExpanded Model Performance (adding 'bp'):")
-print(f"Mean Squared Error: {mse_expanded}")
-print(f"R2 Score: {r2_expanded}")
 
-"""
-Findings for Step b:
-Adding the 'bp' (Blood Pressure) variable increases the R2 score and reduces the MSE, indicating that
-'bp' is a useful predictor when combined with 'bmi' and 's5'.
-"""
 
-# Additional Investigation: Adding all features to see if it further improves
-X_all = df.drop('target', axis=1)
-X_train_all, X_test_all, y_train, y_test = train_test_split(X_all, y, test_size=0.2, random_state=42)
-
-# Standardize all features
-X_train_all_scaled = scaler.fit_transform(X_train_all)
-X_test_all_scaled = scaler.transform(X_test_all)
-
-# Model using all features
-model_all = LinearRegression()
-model_all.fit(X_train_all_scaled, y_train)
-
-# Predictions and Metrics for the model with all features
-y_pred_all = model_all.predict(X_test_all_scaled)
-mse_all = mean_squared_error(y_test, y_pred_all)
-r2_all = r2_score(y_test, y_pred_all)
-
-print("\nFull Model Performance (using all features):")
-print(f"Mean Squared Error: {mse_all}")
-print(f"R2 Score: {r2_all}")
-
-"""
-Findings for Step d:
-Adding more variables does improve the model's performance, but the improvements become smaller as more features are added.
-There may also be overfitting if we include too many features. In practice, it's essential to balance complexity and performance.
-"""
-
-# Conclusion: 'bp' was the best additional variable, but adding all variables offers slight improvements.
