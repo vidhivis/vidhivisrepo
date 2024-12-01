@@ -704,7 +704,7 @@ for n in n_values:
     plt.ylabel("Relative Frequency")
     plt.xticks(range(2, 13))
     plt.show()'''
-# Question - 2
+'''# Question - 2
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -753,10 +753,112 @@ elif 0.5 <= r2 < 0.8:
 else:
     quality = "Good fit"
 
-print(f'Quality of the regression: {quality}')
-
-
-
+print(f'Quality of the regression: {quality}')'''
+'''import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import classification_report, confusion_matrix
+df2 = pd.read_csv("iris.csv")
+print(df2.head())
+X = df2.drop('species', axis=1)
+y = df2['species']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=20)
+svclassifier = SVC(kernel='linear')
+svclassifier.fit(X_train, y_train)
+y_pred = svclassifier.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+svclassifier = SVC(kernel='poly', degree=2)
+svclassifier.fit(X_train, y_train)
+y_pred = svclassifier.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+svclassifier = SVC(kernel='rbf')
+svclassifier.fit(X_train, y_train)
+y_pred = svclassifier.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+import pandas as pd
+import numpy as np
+df = pd.read_csv('weight-height.csv',skiprows=0,delimiter=',')
+X = 2.54*df[['Height']]
+X_mm = MinMaxScaler().fit_transform(X)
+X_std = StandardScaler().fit_transform(X)
+X = np.array(X)
+X_mm = np.array(X_mm)
+X_std = np.array(X_std)
+plt.subplot(1,3,1)
+plt.hist(X,30)
+plt.xlabel("Height")
+plt.title("origin")
+plt.subplot(1,3,2)
+plt.hist(X_mm,30)
+plt.title("Normalized")
+plt.subplot(1,3,3)
+plt.hist(X_std,30)
+plt.title("Standard")
+plt.show()
+X_mm2 = (X-np.min(X))/(np.max(X)-np.min(X))
+print("diff=",np.max(np.abs(X_mm-X_mm2)))
+X_std2 = (X-np.mean(X))/np.std(X)
+print("diff2=",np.max(np.abs(X_std-X_std2)))'''
+'''import matplotlib.pyplot as plt
+from sklearn import neighbors
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import pandas as pd
+import numpy as np
+df = pd.read_csv('Admission_Predict.csv',skiprows=0,delimiter=',')
+print(df)
+X = df[["CGPA",'GRE Score']]
+y = df[["Chance of Admit "]]
+print(X)
+print(y)
+X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.20, random_state=30)
+X_train_norm = MinMaxScaler().fit_transform(X_train)
+X_test_norm = MinMaxScaler().fit_transform(X_test)
+X_train_std = StandardScaler().fit_transform(X_train)
+X_test_std = StandardScaler().fit_transform(X_test)
+print(X_train_norm)
+print(X_test_norm)
+print(X_train_std)
+print(X_test_std)
+lm = neighbors.KNeighborsRegressor(n_neighbors=5)
+lm.fit(X_train, y_train)
+predictions = lm.predict(X_test)
+print("R2=",lm.score(X_test, y_test))
+lm.fit(X_train_norm, y_train)
+#prediction2 = lm.predict(X_test_norm)
+print("R2 (norm) =", lm.score(X_test_norm, y_test))
+lm.fit(X_train_std, y_train)
+print("R2 (std) =", lm.score(X_test_std, y_test))'''
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+from sklearn.model_selection import train_test_split
+import pandas as pd
+import graphviz
+df = pd.read_csv("data_banknote_authentication.csv")
+print(df.head())
+X = df.drop('class', axis=1)
+y = df['class']
+print(X)
+print(y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=11)
+classifier = tree.DecisionTreeClassifier()
+classifier.fit(X_train, y_train)
+y_pred = classifier.predict(X_test)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+dot_data = tree.export_graphviz(classifier, out_file=None,
+            feature_names = X_train.columns,class_names = "class",
+            filled = True, rounded = True, special_characters=True)
+graph = graphviz.Source(dot_data)
+graph.render("dtree")
+graph = graphviz.Source(dot_data)
+graph.render("dtree")
 
 
 
