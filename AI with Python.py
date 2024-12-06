@@ -589,9 +589,9 @@ print(f"Accuracy (KNN with k=3): {accuracy_knn * 100:.2f}%")
 - Based on the accuracy, you can choose which model performs better for your dataset.
 """
 '''
-'''# Assignment - 6
+# Assignment - 6
 # Question - 1
-import pandas as pd
+'''import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, classification_report
@@ -631,7 +631,16 @@ print("Classification Report:\n", class_report_linear)
 
 print("\nRBF Kernel SVM:")
 print("Confusion Matrix:\n", conf_matrix_rbf)
-print("Classification Report:\n", class_report_rbf)'''
+print("Classification Report:\n", class_report_rbf)
+#  Compare the two SVM models in your own words
+""" The best model in this case is RBF Kernel SVM, which has perfectly achieved
+  all metrics of accuracy, precision, recall, as well as F1-score making it a
+  highly proficient model for this dataset. The Linear Kernel SVM, contrary to
+  having slightly inferior performance than that of RBF, produces results that
+  are quite strong. Choosing between the two will depend on the linear separability
+  of the data and computational efficiency, considering that one model may be more
+  efficient than the other."""
+'''
 # Question - 2
 '''import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -724,6 +733,14 @@ print("Decision Tree with Gini Criterion:")
 cm_gini, cr_gini = evaluate_decision_tree('gini', X_train_scaled, X_test_scaled, y_train, y_test)
 print("Confusion Matrix:\n", cm_gini)
 print("Classification Report:\n", cr_gini)
+# 7 - Discuss the performance of your models
+"""Conclusions Regarding Performance: 
+The final results show that both the models, using the Entropy and Gini indices, 
+achieved an accuracy of 84 per cent. The performance of the model is further 
+highlighted by the strong precision and recall achieved by class 0 in identifying 
+the majority class. Class 1, the minority class, is predicted poorly, particularly 
+recall-wise, and so it might adapt some measures to address the class imbalance 
+    (for instance, using class weights or oversampling)."""
 
 
 
